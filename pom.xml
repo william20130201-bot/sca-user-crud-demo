@@ -16,19 +16,31 @@
     <modules>
         <module>user-service</module>
         <module>gateway</module>
-        <module>monitor-service</module>
+     <!--   <module>monitor-service</module>-->
     </modules>
+
+  
+ <repositories>
+    <repository>
+        <id>maven-central-official</id>
+        <url>https://repo1.maven.org/maven2</url>
+        <releases><enabled>true</enabled></releases>
+        <snapshots><enabled>false</enabled></snapshots>
+    </repository>
+</repositories>
+
 
     <!-- 全局版本统一配置，所有子模块直接引用，无需重复写版本 -->
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.boot.version>3.2.0</spring.boot.version>
-        <spring.cloud.version>2023.0.0</spring.cloud.version>
+        <spring.boot.version>3.2.4</spring.boot.version>
+        <spring.cloud.version>2023.0.1</spring.cloud.version>
         <spring.cloud.alibaba.version>2023.0.1.0</spring.cloud.alibaba.version>
         <mybatis.plus.version>3.5.5</mybatis.plus.version>
-        <spring.boot.admin.version>3.2.0</spring.boot.admin.version>
+        <!-- 改为3.2.2，和SpringBoot3.2.4匹配 -->
+        <spring.boot.admin.version>2.7.15</spring.boot.admin.version>
     </properties>
 
     <!-- 版本管理器：只声明版本，不引入依赖，统一全局版本，解决版本冲突 -->
@@ -64,6 +76,13 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis.plus.version}</version>
             </dependency>
+            <!-- SpringBoot Admin 监控组件，统一读取properties版本变量 -->
+ <!-- 注释掉监控客户端
+<dependency>
+    <groupId>de.codecentric</groupId>
+    <artifactId>spring-boot-starter-admin-client</artifactId>
+</dependency>
+-->
         </dependencies>
     </dependencyManagement>
 

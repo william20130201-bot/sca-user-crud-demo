@@ -1,0 +1,21 @@
+# 网关端口，前端统一访问端口
+server:
+  port: 8090
+
+spring:
+  cloud:
+    gateway:
+      # 路由规则：匹配前端请求，转发到用户服务
+      routes:
+        - id: user-service-route # 路由唯一名称，自定义
+          uri: lb://user-service # lb=负载均衡，从Nacos获取用户服务地址
+          predicates:
+            - Path=/user/** # 匹配所有/user开头的请求
+      # 全局跨域配置，解决Vue前端跨域报错
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origin-patterns: "*"
+            allowed-methods: "*"
+            allowed-headers: "*"
+            allow-credentials: true

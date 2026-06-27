@@ -1,0 +1,23 @@
+server:  
+    port: 8081
+# H2内存数据库配置
+spring:  
+    datasource:
+        driver-class-name: org.h2.Driver
+        url: jdbc:h2:mem:userdb;DB_CLOSE_DELAY=-1
+        username: sa
+        password:  
+    # 开启H2网页控制台  
+    h2:
+        console:
+          enabled: true  
+          path: /h2-console
+    # 启动自动执行建表语句  
+    sql:
+        init:
+            schema-locations: classpath:schema-h2.sql  
+            mode: always
+# MyBatisPlus驼峰转换
+mybatis-plus:  
+    configuration:
+        map-underscore-to-camel-case: true

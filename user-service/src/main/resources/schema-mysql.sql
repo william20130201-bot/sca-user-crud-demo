@@ -1,0 +1,7 @@
+-- MySQL用户表，InnoDB引擎、utf8mb4全字符集
+CREATE TABLE t_user (
+id INT PRIMARY KEY AUTO_INCREMENT,
+username VARCHAR(50) NOT NULL, 
+age INT,
+email VARCHAR(100)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
