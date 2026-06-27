@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Maven项目核心声明文件：所有微服务的父工程，统一版本、统一依赖 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- Maven固定版本，所有项目统一4.0.0 -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 项目唯一标识，固定不变 -->
+    <groupId>com.demo</groupId>
+    <artifactId>scr-parent</artifactId>
+    <version>1.0.0</version>
+    <!-- 父工程专属打包方式：pom，只管理子模块，不运行、不打包 -->
+    <packaging>pom</packaging>
+    <name>微服务父工程</name>
+
+    <!-- 声明需要管理的所有子微服务模块 -->
+    <modules>
+        <module>user-service</module>
+        <module>gateway</module>
+        <module>monitor-service</module>
+    </modules>
+
+    <!-- 全局版本统一配置，所有子模块直接引用，无需重复写版本 -->
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.boot.version>3.2.0</spring.boot.version>
+        <spring.cloud.version>2023.0.0</spring.cloud.version>
+        <spring.cloud.alibaba.version>2023.0.1.0</spring.cloud.alibaba.version>
+        <mybatis.plus.version>3.5.5</mybatis.plus.version>
+        <spring.boot.admin.version>3.2.0</spring.boot.admin.version>
+    </properties>
+
+    <!-- 版本管理器：只声明版本，不引入依赖，统一全局版本，解决版本冲突 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- SpringBoot全局依赖包 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- SpringCloud全局依赖包 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- SpringCloudAlibaba全局依赖包 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- MyBatisPlus数据库工具依赖 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 全局公共依赖：所有子模块自动继承 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+</project>
