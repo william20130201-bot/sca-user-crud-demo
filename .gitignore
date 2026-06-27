@@ -1,12 +1,22 @@
-target/  
-.idea/ 
-.vscode/  
+# Maven微服务编译缓存（所有模块target全部忽略）
+**/target/
+*.class
+# IDE工具缓存
+.idea/
+.vscode/
 *.iml
+*.iws
+# 日志文件
 *.log
-node_modules/  
-npm-debug.log   
-.DS_Store  
-application-local.yml  
+# 本地环境隐私配置（绝对禁止上传数据库、密钥）
+application-dev.yml
 application-prod.yml
+application-local.yml
+# 系统垃圾文件
+.DS_Store
+# Maven本地仓库
 maven-repo/
+# Docker临时文件
 .dockerignore
+# 空文件夹缓存
+**/.gitkeep
