@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Maven项目核心声明文件：所有微服务的父工程，统一版本、统一依赖 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <!-- Maven固定版本，所有项目统一4.0.0 -->
     <modelVersion>4.0.0</modelVersion>
 
