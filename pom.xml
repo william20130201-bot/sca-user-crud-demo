@@ -38,7 +38,7 @@
         <spring.boot.version>3.2.4</spring.boot.version>
         <spring.cloud.version>2023.0.1</spring.cloud.version>
         <spring.cloud.alibaba.version>2023.0.1.0</spring.cloud.alibaba.version>
-        <mybatis.plus.version>3.5.5</mybatis.plus.version>
+        <mybatis.plus.version>3.5.7</mybatis.plus.version>
         <!-- 改为3.2.2，和SpringBoot3.2.4匹配 -->
         <spring.boot.admin.version>2.7.15</spring.boot.admin.version>
     </properties>
@@ -75,6 +75,12 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis.plus.version}</version>
+            </dependency>
+            <!-- 强制锁死mybatis-spring，彻底解决factoryBean类型报错 -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>3.0.3</version>
             </dependency>
             <!-- SpringBoot Admin 监控组件，统一读取properties版本变量 -->
  <!-- 注释掉监控客户端
